@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=18jan_main_overfit
+#SBATCH --job-name=TextSummarization
 #SBATCH --time=0-23:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -20,9 +20,9 @@ module load GpuModules
 source /home/g063292/miniconda3/etc/profile.d/conda.sh
 
 # Activate your Conda environment
-conda activate TextSummarization
+conda activate TextS_Py37
 
 # Force the script to use the Conda environment's Python explicitly
-/home/g063292/miniconda3/envs/TextSummarization/bin/python --version  # Confirm Python version
-/home/g063292/miniconda3/envs/TextSummarization/bin/python -c "import textSummarizer; print('textSummarizer is importable!')"
-/home/g063292/miniconda3/envs/TextSummarization/bin/python main.py
+/home/g063292/miniconda3/envs/TextS_Py37/bin/python --version  
+/home/g063292/miniconda3/envs/TextS_Py37/bin/python -c "import textSummarizer; print('textSummarizer is importable!')"
+/home/g063292/miniconda3/envs/TextS_Py37/bin/python main.py
