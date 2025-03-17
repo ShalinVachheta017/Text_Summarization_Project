@@ -1,28 +1,16 @@
 #!/bin/bash
+#SBATCH --time=5-00:00:00
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --partition=long
+#SBATCH --output=output0.log
+#SBATCH --error=error0.log
 
-#SBATCH --job-name=TextSummarization
-#SBATCH --time=0-23:30:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
-#SBATCH --exclude=gpu-node[001-004]
-#SBATCH --output=output.log
-#SBATCH --error=error.log
 
-# Purge all modules to avoid conflicts
-module purge
+# Activate Conda environment
+source ~/miniconda3/etc/profile.d/conda.sh  # Ensure Conda is available
+conda activate TS
 
-# Load GPU drivers or other required modules if necessary
-# module load GpuModules
-
-# Source Conda to enable the 'conda' command
-source /home/g063292/miniconda3/etc/profile.d/conda.sh
-
-# Activate your Conda environment
-conda activate text_summarizer
-
-# Force the script to use the Conda environment's Python explicitly
-/home/g063292/miniconda3/envs/text_summarizer/bin/python --version  
-/home/g063292/miniconda3/envs/text_summarizer/bin/python -c "import textSummarizer; print('textSummarizer is importable!')"
-/home/g063292/miniconda3/envs/text_summarizer/bin/python main.py
+# Run the script
+srun python "/work/ws-tmp/g063292-restore/g063292-projects-1736208608/Text_Summarization/Text_Summarization_Project/main.py"

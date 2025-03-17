@@ -10,7 +10,7 @@
 
 # Activate Conda environment
 source ~/miniconda3/etc/profile.d/conda.sh  # Ensure Conda is available
-conda activate TestSmrz
+conda activate TS
 
 # Run the script
 srun python "/work/ws-tmp/g063292-restore/g063292-projects-1736208608/Text_Summarization/Text_Summarization_Project/main.py"
