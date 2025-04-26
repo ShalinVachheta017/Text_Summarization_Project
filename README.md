@@ -1,4 +1,4 @@
-# Text_Summarization_Project
+# pegasus-dialogue-summarization
 
 ## Workflow
 
