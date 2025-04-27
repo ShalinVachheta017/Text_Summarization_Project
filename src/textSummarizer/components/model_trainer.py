@@ -20,7 +20,7 @@ class ModelTrainer:
         # Define training arguments
         training_args = TrainingArguments(
             output_dir=self.config.root_dir,
-            num_train_epochs=5,  # Increased number of epochs
+            num_train_epochs=20,  # Increased number of epochs
             warmup_steps=500,
             per_device_train_batch_size=2,  # Increased batch size
             per_device_eval_batch_size=2,
